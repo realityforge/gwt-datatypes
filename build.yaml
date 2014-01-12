@@ -9,3 +9,8 @@ artifacts:
 
   # Mocking library used in tests
   mockito: org.mockito:mockito-all:jar:1.8.5
+
+  #
+  # Jackson library
+  jackson_core: org.codehaus.jackson:jackson-core-asl:jar:1.9.4
+  jackson_mapper: org.codehaus.jackson:jackson-mapper-asl:jar:1.9.4

@@ -12,7 +12,7 @@ define 'gwt-datatypes' do
   pom.add_apache2_license
   pom.add_github_project("realityforge/gwt-datatypes")
   pom.add_developer('realityforge', "Peter Donald")
-  pom.provided_dependencies.concat [:javax_annotation, :gwt_user, :gwt_dev]
+  pom.provided_dependencies.concat [:javax_annotation, :gwt_user]
   pom.optional_dependencies.concat [:jackson_core, :jackson_mapper]
 
   compile.with :javax_annotation, :gwt_user, :jackson_core, :jackson_mapper

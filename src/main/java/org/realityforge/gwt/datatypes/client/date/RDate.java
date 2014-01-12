@@ -2,6 +2,7 @@ package org.realityforge.gwt.datatypes.client.date;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.annotation.Nonnull;
 
 /**
  * The client-side GWT representation of a date.
@@ -60,7 +61,7 @@ public final class RDate
   }
 
   @Override
-  public int compareTo( final RDate other )
+  public int compareTo( @Nonnull final RDate other )
   {
     if ( getYear() != other.getYear() )
     {
@@ -94,18 +95,18 @@ public final class RDate
   }
 
   @SuppressWarnings( { "deprecation" } )
-  public static RDate fromDate( final Date date )
+  public static RDate fromDate( @Nonnull final Date date )
   {
     return new RDate( date.getYear() + 1900, date.getMonth() + 1, date.getDate() );
   }
 
   @SuppressWarnings( { "deprecation" } )
-  public static Date toDate( final RDate date )
+  public static Date toDate( @Nonnull final RDate date )
   {
     return new Date( date.getYear() - 1900, date.getMonth() -1, date.getDay() );
   }
 
-  public static RDate parse( final String text )
+  public static RDate parse( @Nonnull final String text )
   {
     final int length = text.length();
     int i = 0;

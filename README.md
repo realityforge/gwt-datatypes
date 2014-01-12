@@ -1,6 +1,8 @@
 gwt-datatypes
 =============
 
+[![Build Status](https://secure.travis-ci.org/realityforge/gwt-datatypes.png?branch=master)](http://travis-ci.org/realityforge/gwt-datatypes)
+
 A simple library that consolidates the common data types and associated
 infrastructure used across a range of GWT projects.
 

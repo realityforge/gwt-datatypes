@@ -54,11 +54,6 @@ public class GwtDateTimeService
   @Override
   public RDate today()
   {
-    return RDate.parse( getTodayAsString() );
+    return DateUtil.localToday();
   }
-
-  private static native String getTodayAsString() /*-{
-    var date = new Date();
-    return date.getFullYear() + "-" + ( date.getMonth() + 1 ) + "-" + date.getDate();
-  }-*/;
 }

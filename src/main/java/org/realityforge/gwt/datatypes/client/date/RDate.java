@@ -51,6 +51,12 @@ public final class RDate
     return getYear() + "-" + getMonth() + "-" + getDay();
   }
 
+  @Nonnull
+  public RDate addDays( final int dayDelta )
+  {
+    return addDays( this, dayDelta );
+  }
+
   @Override
   public int hashCode()
   {
@@ -104,6 +110,77 @@ public final class RDate
   public static Date toDate( @Nonnull final RDate date )
   {
     return new Date( date.getYear() - 1900, date.getMonth() -1, date.getDay() );
+  }
+
+  @Nonnull
+  public static RDate addDays( @Nonnull final RDate date, final int dayDelta )
+  {
+    int year = date.getYear();
+    int month = date.getMonth();
+    int day = date.getDay() + dayDelta;
+    while( day < 0 )
+    {
+      month -= 1;
+      if( 0 == month )
+      {
+        year -= 1;
+        month = 12;
+      }
+      day += getDaysInMonth( year, month );
+    }
+
+    while( day > getDaysInMonth( year, month ) )
+    {
+      day -= getDaysInMonth( year, month );
+      month += 1;
+      if( 13 == month )
+      {
+        year += 1;
+        month = 1;
+      }
+    }
+
+    return new RDate( year, month, day );
+  }
+
+  static int getDaysInMonth( final int year, final int month )
+  {
+    switch ( month )
+    {
+      case 1:
+        return 31;
+      case 2:
+        if ( 0 == year % 4 && ( 0 != year % 100 || ( 0 == year % 400 ) ) )
+        {
+          return 29;
+        }
+        else
+        {
+          return 28;
+        }
+      case 3:
+        return 31;
+      case 4:
+        return 30;
+      case 5:
+        return 31;
+      case 6:
+        return 30;
+      case 7:
+        return 31;
+      case 8:
+        return 31;
+      case 9:
+        return 30;
+      case 10:
+        return 31;
+      case 11:
+        return 30;
+      case 12:
+        return 31;
+      default:
+        throw new IllegalStateException();
+    }
   }
 
   public static RDate parse( @Nonnull final String text )

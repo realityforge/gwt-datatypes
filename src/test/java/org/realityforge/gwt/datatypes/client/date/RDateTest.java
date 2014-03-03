@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.annotation.Nonnull;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
@@ -184,5 +185,34 @@ public class RDateTest
   {
     final RDate rDate = new RDate( 2011, 10, 9 );
     assertEquals( RDate.fromDate( RDate.toDate( rDate ) ), rDate );
+  }
+
+   @DataProvider( name = "DatesToAdd" )
+  public Object[][] dates()
+  {
+    return new Object[][]
+      {
+        { new RDate( 2014, 2, 20 ), 1, new RDate( 2014, 2, 21 ) },
+        { new RDate( 2014, 2, 20 ), -1, new RDate( 2014, 2, 19 ) },
+        { new RDate( 1997, 2, 28 ), 1, new RDate( 1997, 3, 1 ) },
+        { new RDate( 2012, 2, 28 ), 1, new RDate( 2012, 2, 29 ) },
+        { new RDate( 2000, 2, 28 ), 1, new RDate( 2000, 2, 29 ) },
+        { new RDate( 1900, 2, 28 ), 1, new RDate( 1900, 3, 1 ) },
+        { new RDate( 2014, 2, 20 ), -100, new RDate( 2013, 11, 12 ) },
+        { new RDate( 2014, 2, 20 ), 100, new RDate( 2014, 5, 31 ) },
+      };
+  }
+
+  @Test( dataProvider = "DatesToAdd" )
+  public void addDays( @Nonnull final RDate date, final int delta, @Nonnull final RDate expected )
+  {
+    assertEquals( RDate.addDays( date, delta ), expected );
+  }
+
+
+  @Test( dataProvider = "DatesToAdd" )
+  public void addDaysInstance( @Nonnull final RDate date, final int delta, @Nonnull final RDate expected )
+  {
+    assertEquals( date.addDays( delta ), expected );
   }
 }

@@ -209,7 +209,6 @@ public class RDateTest
     assertEquals( RDate.addDays( date, delta ), expected );
   }
 
-
   @Test( dataProvider = "DatesToAdd" )
   public void addDaysInstance( @Nonnull final RDate date, final int delta, @Nonnull final RDate expected )
   {

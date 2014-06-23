@@ -187,7 +187,7 @@ public class RDateTest
     assertEquals( RDate.fromDate( RDate.toDate( rDate ) ), rDate );
   }
 
-   @DataProvider( name = "DatesToAdd" )
+  @DataProvider( name = "DatesToAdd" )
   public Object[][] dates()
   {
     return new Object[][]

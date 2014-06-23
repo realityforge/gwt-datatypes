@@ -214,4 +214,31 @@ public class RDateTest
   {
     assertEquals( date.addDays( delta ), expected );
   }
+
+  @DataProvider( name = "DatesToCompare" )
+  public Object[][] datesToCompare()
+  {
+    return new Object[][]
+      {
+      { new RDate( 2001, 1, 1 ), new RDate( 2001, 1, 1 ), false, false, true },
+      { new RDate( 2001, 1, 1 ), new RDate( 2002, 1, 1 ), true, false, false },
+      { new RDate( 2001, 1, 1 ), new RDate( 2000, 1, 1 ), false, true, false },
+      { new RDate( 2001, 1, 1 ), new RDate( 2001, 2, 1 ), true, false, false },
+      { new RDate( 2001, 2, 1 ), new RDate( 2001, 1, 1 ), false, true, false },
+      { new RDate( 2001, 1, 1 ), new RDate( 2001, 1, 2 ), true, false, false },
+      { new RDate( 2001, 1, 2 ), new RDate( 2001, 1, 1 ), false, true, false },
+      };
+  }
+
+  @Test( dataProvider = "DatesToCompare" )
+  public void comparing( @Nonnull final RDate date1,
+                         @Nonnull final RDate date2,
+                         final boolean before,
+                         final boolean after,
+                         final boolean same )
+  {
+    assertEquals( date1.before( date2 ), before );
+    assertEquals( date1.after( date2 ), after );
+    assertEquals( date1.equals( date2 ), same );
+  }
 }

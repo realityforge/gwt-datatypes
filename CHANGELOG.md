@@ -1,3 +1,7 @@
+## 0.4:
+
+* Support before() and after() on RDate.
+
 ## 0.3:
 
 * Restore Java 6 compatibility. Submitted by James Walker.

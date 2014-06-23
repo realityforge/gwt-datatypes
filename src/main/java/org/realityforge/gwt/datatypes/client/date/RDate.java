@@ -66,6 +66,16 @@ public final class RDate
     return h;
   }
 
+  public boolean before( @Nonnull final RDate other )
+  {
+    return compareTo( other ) < 0;
+  }
+
+  public boolean after( @Nonnull final RDate other )
+  {
+    return compareTo( other ) > 0;
+  }
+
   @Override
   public int compareTo( @Nonnull final RDate other )
   {

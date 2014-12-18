@@ -153,7 +153,14 @@ public final class RDate
     return new RDate( year, month, day );
   }
 
-  static int getDaysInMonth( final int year, final int month )
+  /**
+   * Return the number of days in the specified month.
+   *
+   * @param year  the year.
+   * @param month the month.
+   * @return the number of days in specified month.
+   */
+  public static int getDaysInMonth( final int year, final int month )
   {
     switch ( month )
     {

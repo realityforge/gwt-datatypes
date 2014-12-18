@@ -1,3 +1,7 @@
+## 0.5:
+
+* Update Rdate.getDaysInMonth() to add javadocs and make the method public.
+
 ## 0.4:
 
 * Support before() and after() on RDate.

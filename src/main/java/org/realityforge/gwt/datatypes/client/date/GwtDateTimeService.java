@@ -49,11 +49,4 @@ public class GwtDateTimeService
   {
     return RDate.fromDate( _dateFormat.parse( dateStr ) );
   }
-
-  @Nonnull
-  @Override
-  public RDate today()
-  {
-    return DateUtil.localToday();
-  }
 }

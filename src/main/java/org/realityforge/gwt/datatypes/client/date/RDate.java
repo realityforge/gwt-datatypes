@@ -116,6 +116,11 @@ public final class RDate
            getDay() == other.getDay();
   }
 
+  public static RDate today()
+  {
+    return fromDate( new Date() );
+  }
+
   @SuppressWarnings( { "deprecation" } )
   public static RDate fromDate( @Nonnull final Date date )
   {

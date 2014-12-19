@@ -13,7 +13,4 @@ public interface DateTimeService
 
   @Nullable
   RDate parseDate( @Nonnull String dateStr );
-
-  @Nonnull
-  RDate today();
 }

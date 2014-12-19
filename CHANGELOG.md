@@ -1,3 +1,7 @@
+## 0.7:
+
+* Add Rdate.today() to replace DateUtil code and remove today() method from DateTimeService.
+
 ## 0.6:
 
 * Fix bug in Rdate.addMonths() that did not always correctly update the years.

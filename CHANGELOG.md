@@ -1,6 +1,7 @@
 ## 0.5:
 
 * Update Rdate.getDaysInMonth() to add javadocs and make the method public.
+* Add Rdate.addMonths() utility method to help with date manipulation.
 
 ## 0.4:
 

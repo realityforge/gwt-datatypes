@@ -215,6 +215,33 @@ public class RDateTest
     assertEquals( date.addDays( delta ), expected );
   }
 
+  @DataProvider( name = "MonthAddDataSet" )
+  public Object[][] monthAddDataSet()
+  {
+    return new Object[][]
+      {
+        { new RDate( 2014, 2, 20 ), 1, new RDate( 2014, 3, 20 ) },
+        { new RDate( 2014, 2, 20 ), -1, new RDate( 2014, 1, 20 ) },
+        { new RDate( 1997, 3, 29 ), -1, new RDate( 1997, 2, 28 ) },
+        { new RDate( 2014, 2, 20 ), 12, new RDate( 2015, 2, 20 ) },
+        { new RDate( 2014, 2, 20 ), 13, new RDate( 2015, 3, 20 ) },
+        { new RDate( 2014, 2, 20 ), -12, new RDate( 2013, 2, 20 ) },
+        { new RDate( 2014, 2, 20 ), -13, new RDate( 2013, 1, 20 ) },
+      };
+  }
+
+  @Test( dataProvider = "MonthAddDataSet" )
+  public void addMonths( @Nonnull final RDate date, final int delta, @Nonnull final RDate expected )
+  {
+    assertEquals( RDate.addMonths( date, delta ), expected );
+  }
+
+  @Test( dataProvider = "MonthAddDataSet" )
+  public void addMonthsInstance( @Nonnull final RDate date, final int delta, @Nonnull final RDate expected )
+  {
+    assertEquals( date.addMonths( delta ), expected );
+  }
+
   @DataProvider( name = "DatesToCompare" )
   public Object[][] datesToCompare()
   {

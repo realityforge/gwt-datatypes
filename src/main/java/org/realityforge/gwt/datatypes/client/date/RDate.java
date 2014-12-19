@@ -57,6 +57,12 @@ public final class RDate
     return addDays( this, dayDelta );
   }
 
+  @Nonnull
+  public RDate addMonths( final int monthDelta )
+  {
+    return addMonths( this, monthDelta );
+  }
+
   @Override
   public int hashCode()
   {
@@ -149,6 +155,39 @@ public final class RDate
         month = 1;
       }
     }
+
+    return new RDate( year, month, day );
+  }
+
+  /**
+   * Add a number of months to the date and return a new instance.
+   *
+   * The day of the month unless it would exceed the number of days in the
+   * month, in which case the date is set at the last day of the month.
+   */
+  @Nonnull
+  public static RDate addMonths( @Nonnull final RDate date, final int monthDelta )
+  {
+    int year = date.getYear();
+    int month = date.getMonth();
+    int day = date.getDay();
+
+    year += monthDelta / 12;
+
+    month += monthDelta;
+
+    while( month <= 0 )
+    {
+      month += 12;
+    }
+
+    while( month > 12 )
+    {
+      month -= 12;
+    }
+
+    final int daysInMonth = getDaysInMonth( year, month );
+    day = Math.min( day, daysInMonth );
 
     return new RDate( year, month, day );
   }

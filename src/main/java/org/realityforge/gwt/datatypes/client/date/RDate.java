@@ -119,7 +119,7 @@ public final class RDate
   @SuppressWarnings( { "deprecation" } )
   public static Date toDate( @Nonnull final RDate date )
   {
-    return new Date( date.getYear() - 1900, date.getMonth() -1, date.getDay() );
+    return new Date( date.getYear() - 1900, date.getMonth() - 1, date.getDay() );
   }
 
   @Nonnull
@@ -128,10 +128,10 @@ public final class RDate
     int year = date.getYear();
     int month = date.getMonth();
     int day = date.getDay() + dayDelta;
-    while( day < 0 )
+    while ( day < 0 )
     {
       month -= 1;
-      if( 0 == month )
+      if ( 0 == month )
       {
         year -= 1;
         month = 12;
@@ -139,11 +139,11 @@ public final class RDate
       day += getDaysInMonth( year, month );
     }
 
-    while( day > getDaysInMonth( year, month ) )
+    while ( day > getDaysInMonth( year, month ) )
     {
       day -= getDaysInMonth( year, month );
       month += 1;
-      if( 13 == month )
+      if ( 13 == month )
       {
         year += 1;
         month = 1;

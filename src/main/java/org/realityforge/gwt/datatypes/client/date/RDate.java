@@ -172,18 +172,18 @@ public final class RDate
     int month = date.getMonth();
     int day = date.getDay();
 
-    year += monthDelta / 12;
-
     month += monthDelta;
 
     while( month <= 0 )
     {
       month += 12;
+      year -= 1;
     }
 
     while( month > 12 )
     {
       month -= 12;
+      year += 1;
     }
 
     final int daysInMonth = getDaysInMonth( year, month );

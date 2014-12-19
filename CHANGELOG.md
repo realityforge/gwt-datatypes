@@ -1,3 +1,7 @@
+## 0.6:
+
+* Fix bug in Rdate.addMonths() that did not always correctly update the years.
+
 ## 0.5:
 
 * Update Rdate.getDaysInMonth() to add javadocs and make the method public.

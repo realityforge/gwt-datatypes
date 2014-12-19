@@ -227,6 +227,7 @@ public class RDateTest
         { new RDate( 2014, 2, 20 ), 13, new RDate( 2015, 3, 20 ) },
         { new RDate( 2014, 2, 20 ), -12, new RDate( 2013, 2, 20 ) },
         { new RDate( 2014, 2, 20 ), -13, new RDate( 2013, 1, 20 ) },
+        { new RDate( 2014, 12, 19 ), 1, new RDate( 2015, 1, 19 ) },
       };
   }
 
@@ -234,6 +235,13 @@ public class RDateTest
   public void addMonths( @Nonnull final RDate date, final int delta, @Nonnull final RDate expected )
   {
     assertEquals( RDate.addMonths( date, delta ), expected );
+  }
+
+  @Test
+  public void X()
+  {
+    final RDate actual = RDate.addMonths( new RDate( 2014, 2, 20 ), -13 );
+    assertEquals( actual, new RDate( 2013, 1, 20 ) );
   }
 
   @Test( dataProvider = "MonthAddDataSet" )

@@ -207,6 +207,7 @@ public class RDateTest
   public void addDays( @Nonnull final RDate date, final int delta, @Nonnull final RDate expected )
   {
     assertEquals( RDate.addDays( date, delta ), expected );
+    assertEquals( RDate.addDays( expected, -delta ), date );
   }
 
   @Test( dataProvider = "DatesToAdd" )

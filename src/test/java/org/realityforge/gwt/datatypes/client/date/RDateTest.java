@@ -200,6 +200,7 @@ public class RDateTest
         { new RDate( 1900, 2, 28 ), 1, new RDate( 1900, 3, 1 ) },
         { new RDate( 2014, 2, 20 ), -100, new RDate( 2013, 11, 12 ) },
         { new RDate( 2014, 2, 20 ), 100, new RDate( 2014, 5, 31 ) },
+        { new RDate( 2014, 2, 1 ), -1, new RDate( 2014, 1, 31 ) },
       };
   }
 

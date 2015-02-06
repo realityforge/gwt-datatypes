@@ -1,3 +1,8 @@
+## 0.8:
+
+* Fix bug in RDate.addDays() where -1 on the first day of the month resulted in day 0 of
+  the same month rather than the last day of the previous month.
+
 ## 0.7:
 
 * Add Rdate.today() to replace DateUtil code and remove today() method from DateTimeService.

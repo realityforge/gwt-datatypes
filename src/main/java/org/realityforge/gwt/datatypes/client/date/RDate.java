@@ -139,7 +139,7 @@ public final class RDate
     int year = date.getYear();
     int month = date.getMonth();
     int day = date.getDay() + dayDelta;
-    while ( day < 0 )
+    while ( day <= 0 )
     {
       month -= 1;
       if ( 0 == month )

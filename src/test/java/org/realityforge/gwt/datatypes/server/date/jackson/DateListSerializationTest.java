@@ -22,7 +22,8 @@ public final class DateListSerializationTest
   {
     final RDate rDate1 = new RDate( 2001, 1, 1 );
     final RDate rDate2 = new RDate( 2001, 2, 28 );
-    final RDate[] dates = new RDate[]{ rDate1, rDate2 };
+    final RDate rDate3 = new RDate( 2001, 10, 28 );
+    final RDate[] dates = new RDate[]{ rDate1, rDate2, rDate3 };
 
     final ArrayList<Date> datesCollection = new ArrayList<Date>();
     for ( final RDate date : dates )
@@ -35,8 +36,9 @@ public final class DateListSerializationTest
     new DateListSerializer().serialize( datesCollection, generator, mock( SerializerProvider.class ) );
 
     verify( generator ).writeStartArray();
-    verify( generator ).writeString( "2001-01-01" );
-    verify( generator ).writeString( "2001-02-28" );
+    verify( generator ).writeString( "2001-1-01" );
+    verify( generator ).writeString( "2001-2-28" );
+    verify( generator ).writeString( "2001-10-28" );
     verify( generator ).writeEndArray();
 
     final JsonParser parser = mock( JsonParser.class );
@@ -46,8 +48,9 @@ public final class DateListSerializationTest
       thenReturn( JsonToken.VALUE_STRING ).
       thenReturn( JsonToken.END_ARRAY );
     when( parser.getText() ).
-      thenReturn( "2001-01-01" ).
-      thenReturn( "2001-02-28" );
+      thenReturn( "2001-1-01" ).
+      thenReturn( "2001-2-28" ).
+      thenReturn( "2001-10-28" );
     final List<Date> result =
       new DateListDeserializer().deserialize( parser, mock( DeserializationContext.class ) );
 

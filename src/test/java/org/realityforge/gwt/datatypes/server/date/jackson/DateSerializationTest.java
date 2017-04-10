@@ -17,9 +17,9 @@ public final class DateSerializationTest
   public Object[][] validDates()
   {
     return new Object[][]{
-      { "2001-01-01", DateTestUtil.toDayDate( 2001, 1, 1 ), new RDate( 2001, 1, 1 ) },
+      { "2001-1-01", DateTestUtil.toDayDate( 2001, 1, 1 ), new RDate( 2001, 1, 1 ) },
       { "2001-10-01", DateTestUtil.toDayDate( 2001, 10, 1 ), new RDate( 2001, 10, 1 ) },
-      { "2001-02-28", DateTestUtil.toDayDate( 2001, 2, 28 ), new RDate( 2001, 2, 28 ) },
+      { "2001-2-28", DateTestUtil.toDayDate( 2001, 2, 28 ), new RDate( 2001, 2, 28 ) },
       { "2021-12-31", DateTestUtil.toDayDate( 2021, 12, 31 ), new RDate( 2021, 12, 31 ) },
     };
   }

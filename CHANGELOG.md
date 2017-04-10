@@ -1,3 +1,7 @@
+## 0.9:
+
+* Align the format of RDates and Dates formatted by the jackson DateSerializers.
+
 ## 0.8:
 
 * Fix bug in RDate.addDays() where -1 on the first day of the month resulted in day 0 of

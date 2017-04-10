@@ -30,6 +30,6 @@ final class DateUtil
 
   static DateFormat newDateFormatter()
   {
-    return new SimpleDateFormat( "yyyy-MM-dd" );
+    return new SimpleDateFormat( "yyyy-M-dd" );
   }
 }

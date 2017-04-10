@@ -16,7 +16,7 @@ into the build system. i.e.
 <dependency>
    <groupId>org.realityforge.gwt.datatypes</groupId>
    <artifactId>gwt-datatypes</artifactId>
-   <version>0.1</version>
+   <version>0.8</version>
    <scope>provided</scope>
 </dependency>
 ```

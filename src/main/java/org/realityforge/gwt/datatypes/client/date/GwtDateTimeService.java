@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 /**
  * A service for accessing client-side date / time services.
- * <p/>
+ *
  * <p>This is implemented as a service so that it can be mocked out during testing as
  * the underlying GWT implementation uses JSNI.</p>
  */

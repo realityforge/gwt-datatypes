@@ -1,13 +1,21 @@
 language: ruby
 jdk:
-  - oraclejdk8
+- oraclejdk8
 sudo: false
 rvm:
-  - 2.3.1
+- 2.3.1
+before_install:
+- openssl aes-256-cbc -K $encrypted_d71fa9404207_key -iv $encrypted_d71fa9404207_iv
+  -in etc/secrets -out ../secrets.tar -d
 install:
-  - rvm use 2.3.1
-  - gem install bundler
-  - bundle install
+- rvm use 2.3.1
+- gem install bundler
+- bundle install
 script: buildr clean package
 git:
   depth: 10
+env:
+  global:
+  - secure: fDpVjnUk598UZiC7z+hA6bDIBf+WP8V2nbM6Kj6fCb+5w1NivJnR9VQZ4bOGgDzFvNxe+tmzpcMDnha2rkrrrHqCJSWhZqbc1WmT/I0O9HyTSjI+dRfjZj/jg5qdoKSVQ4rh5v85XNvXGsyLwhi8K6eSSKMXQKZvgDuEU8LWD/8=
+  - secure: UUoiCaUPfZqRq7Wba6WPQfBQb+e5qFMaRKe2E7MKwxqH2LS2ES34XVdZ0Xf/HJBB96G9fA215PUu5fyfu4CKvv10aQ0ShUluXxRh8DwNBbMO8/OTc6IaX8xKLBCRe941NtJouLSYIzBqj0UKCggccAe79u2pY3uIpPCC1P4SLac=
+  - secure: Arcf5U/bwkCPG4O9hdjtB4GgvSnLWbRPrjFHQ275KapE7KnCFVYQfVx0k/O04fzj52qYzM+MK3Rk4Uxesn97vmlQXI2oTMlmFfdTAA7NdKRVfLqXr1rAftrLBnPwIM0KEoGRyCrijEWuvCjK+FcV6lVjrdz4bSTyy2esFu/2nkc=

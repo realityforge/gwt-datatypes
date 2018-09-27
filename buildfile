@@ -25,4 +25,6 @@ define 'gwt-datatypes' do
   package(:jar).include("#{_(:source, :main, :java)}/*")
   package(:sources)
   package(:javadoc)
+
+  gwt_enhance(project)
 end

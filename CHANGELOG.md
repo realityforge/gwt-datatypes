@@ -1,3 +1,10 @@
+## 0.10:
+
+* Remove `DateTimeService` and `GwtDateTimeService` as they are no loner used by
+  any downstream libraries and it means we can remove `<inherits name='com.google.gwt.i18n.I18N'/>`
+  which adds a significant amount of code that will be compiled and then eliminated
+  due to dead code elimination.
+
 ## 0.9:
 
 * Align the format of RDates and Dates formatted by the jackson DateSerializers.

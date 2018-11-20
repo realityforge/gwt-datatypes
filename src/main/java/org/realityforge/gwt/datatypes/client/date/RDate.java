@@ -22,9 +22,9 @@ public final class RDate
 
   public RDate( final int year, final int month, final int day )
   {
-    assert ( year > 0 || year < 2050 );
-    assert ( month > 0 || month <= 12 );
-    assert ( day > 0 || day < 31 );
+    assert ( year > 0 && year < 2050 );
+    assert ( month > 0 && month <= 12 );
+    assert ( day > 0 && day < 31 );
     _year = year;
     _month = month;
     _day = day;
